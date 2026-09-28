@@ -1,6 +1,6 @@
 package com.shelfwise.backend.entity.enums;
 
-public class Role {
+public enum Role {
     ADMIN,
     STAFF,
     CUSTOMER,
