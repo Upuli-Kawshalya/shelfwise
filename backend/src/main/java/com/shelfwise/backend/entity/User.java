@@ -3,6 +3,7 @@ package com.shelfwise.backend.entity;
 import com.shelfwise.backend.entity.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "users")
@@ -23,6 +24,7 @@ public class User {
     private String email;
 
     @Column(nullable = false)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
     @Enumerated(EnumType.STRING)
