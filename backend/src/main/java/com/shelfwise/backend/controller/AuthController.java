@@ -7,6 +7,7 @@ import com.shelfwise.backend.entity.enums.Role;
 import com.shelfwise.backend.service.AuthService;
 import com.shelfwise.backend.service.UserService;
 import org.springframework.web.bind.annotation.*;
+import com.shelfwise.backend.dto.LoginResponse;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -36,7 +37,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public User login(@RequestBody LoginRequest request) {
+    public LoginResponse login(@RequestBody LoginRequest request) {
         return authService.login(request);
     }
 }
