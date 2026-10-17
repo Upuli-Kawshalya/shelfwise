@@ -1,3 +1,4 @@
+
 package com.shelfwise.backend.config;
 
 import com.shelfwise.backend.security.JwtAuthenticationFilter;
@@ -24,13 +25,23 @@ public class SecurityConfig {
 
         http
                 .csrf(csrf -> csrf.disable())
+
                 .authorizeHttpRequests(auth -> auth
+                        // Public authentication endpoints
                         .requestMatchers("/api/auth/**").permitAll()
+
+                        // Only ADMIN can manage users
+                        .requestMatchers("/api/users", "/api/users/**")
+                        .hasRole("ADMIN")
+
+                        // All other endpoints require authentication
                         .anyRequest().authenticated()
                 )
+
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
+
                 .addFilterBefore(
                         jwtAuthenticationFilter,
                         UsernamePasswordAuthenticationFilter.class
