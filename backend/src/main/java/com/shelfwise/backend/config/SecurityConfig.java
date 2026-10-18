@@ -27,14 +27,14 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
 
                 .authorizeHttpRequests(auth -> auth
-                        // Public authentication endpoints
+
                         .requestMatchers("/api/auth/**").permitAll()
 
-                        // Only ADMIN can manage users
+                        .requestMatchers("/error").permitAll()
+
                         .requestMatchers("/api/users", "/api/users/**")
                         .hasRole("ADMIN")
 
-                        // All other endpoints require authentication
                         .anyRequest().authenticated()
                 )
 
