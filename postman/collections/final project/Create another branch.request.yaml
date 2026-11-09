@@ -1,0 +1,19 @@
+$kind: http-request
+url: http://localhost:8083/api/branches
+method: POST
+body:
+  type: json
+  content: "\r
+
+    {\r
+
+    \  \"branchCode\": \"BR002\",\r
+
+    \  \"branchName\": \"Galle Post Office\",\r
+
+    \  \"address\": \"Galle, Sri Lanka\",\r
+
+    \  \"contactNumber\": \"0912222222\"\r
+
+    }\r\n"
+order: 23000

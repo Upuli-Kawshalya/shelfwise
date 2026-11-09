@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:8083/internal/branches/1
+method: GET
+order: 27000

@@ -1,0 +1,19 @@
+$kind: http-request
+url: http://localhost:8081/api/employees/1
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"\",\r
+
+    \  \"phone\": \"0712345678\",\r
+
+    \  \"role\": \"BRANCH_ADMIN\",\r
+
+    \  \"branchId\": 1,\r
+
+    \  \"active\": true\r
+
+    }"
+order: 9000

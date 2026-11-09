@@ -1,0 +1,19 @@
+$kind: http-request
+url: http://localhost:8083/api/branches
+method: POST
+body:
+  type: json
+  content: "\r
+
+    {\r
+
+    \  \"branchCode\": \"BR001\",\r
+
+    \  \"branchName\": \"Matara Post Office\",\r
+
+    \  \"address\": \"Matara, Sri Lanka\",\r
+
+    \  \"contactNumber\": \"0412222222\"\r
+
+    }\r\n"
+order: 19000

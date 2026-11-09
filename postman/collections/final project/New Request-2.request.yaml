@@ -1,0 +1,35 @@
+$kind: http-request
+name: New Request
+url: http://localhost:8180/realms/srps-realm/.well-known/openid-configuration
+method: GET
+scripts:
+  - type: beforeRequest
+    code: "const verifier = pm.variables.replaceIn('{{$guid}}') +\r
+
+      \                 pm.variables.replaceIn('{{$guid}}');\r
+
+      \r
+
+      const hash = CryptoJS.SHA256(verifier);\r
+
+      \r
+
+      const challenge = CryptoJS.enc.Base64.stringify(hash)\r
+
+      \    .replace(/\\+/g, '-')\r
+
+      \    .replace(/\\//g, '_')\r
+
+      \    .replace(/=+$/, '');\r
+
+      \r
+
+      pm.collectionVariables.set(\"pkce_verifier\", verifier);\r
+
+      pm.collectionVariables.set(\"pkce_challenge\", challenge);\r
+
+      \r
+
+      console.log(\"PKCE values generated successfully\");"
+    language: text/javascript
+order: 15000

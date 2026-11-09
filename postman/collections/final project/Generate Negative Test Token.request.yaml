@@ -1,0 +1,56 @@
+$kind: http-request
+url: http://localhost:8180/realms/srps-realm/protocol/openid-connect/token
+method: POST
+body:
+  type: urlencoded
+  content:
+    grant_type: client_credentials
+    client_id: srps-audience-negative-test
+    client_secret: ZVDcATkg3kHn6I1Zhc78sknBKyxfhnFB1TZuYjHJfQf2ZTvtp6Us0ibUUsZCJAR9XqRIeox7kdjagp3hwHGlYq
+scripts:
+  - type: afterResponse
+    code: "\r
+
+      const data = pm.response.json();\r
+
+      \r
+
+      if (pm.response.code === 200 && data.access_token) {\r
+
+      \    const base64 = data.access_token.split(\".\")[1]\r
+
+      \        .replace(/-/g, \"+\")\r
+
+      \        .replace(/_/g, \"/\");\r
+
+      \r
+
+      \    const payload = JSON.parse(\r
+
+      \        Buffer.from(base64, \"base64\").toString(\"utf8\")\r
+
+      \    );\r
+
+      \r
+
+      \    console.log(\"Negative test token audience:\", payload.aud);\r
+
+      \r
+
+      \    const audiences = Array.isArray(payload.aud)\r
+
+      \        ? payload.aud\r
+
+      \        : payload.aud ? [payload.aud] : [];\r
+
+      \r
+
+      \    pm.test(\"Token does NOT contain branch-service audience\", function () {\r
+
+      \        pm.expect(audiences).not.to.include(\"branch-service\");\r
+
+      \    });\r
+
+      }\r\n"
+    language: text/javascript
+order: 83000

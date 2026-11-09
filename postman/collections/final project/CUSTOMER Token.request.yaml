@@ -1,0 +1,11 @@
+$kind: http-request
+url: http://localhost:8180/realms/srps-realm/protocol/openid-connect/token
+method: POST
+body:
+  type: urlencoded
+  content:
+    grant_type: password
+    client_id: srps-postman-test
+    username: testcustomer1
+    password: Test@cus
+order: 44000

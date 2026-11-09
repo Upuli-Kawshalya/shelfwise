@@ -1,0 +1,7 @@
+$kind: http-request
+url: http://localhost:8081/api/customers?page=-1&size=10
+method: GET
+queryParams:
+  page: "-1"
+  size: "10"
+order: 11000

@@ -1,0 +1,15 @@
+$kind: http-request
+url: http://localhost:8083/api/branches/4
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \  \"branchName\": \"Unauthorized Update Test\",\r
+
+    \  \"address\": \"Test Address, Matara\",\r
+
+    \  \"contactNumber\": \"0412223344\"\r
+
+    }"
+order: 61000

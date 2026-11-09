@@ -1,0 +1,7 @@
+$kind: http-request
+url: http://localhost:8083/api/branches/4/status
+method: PATCH
+body:
+  type: json
+  content: "{\r\n  \"active\": true\r\n}"
+order: 57000

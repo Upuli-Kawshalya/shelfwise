@@ -1,0 +1,10 @@
+$kind: http-request
+url: http://localhost:8180/realms/srps-realm/protocol/openid-connect/token
+method: POST
+body:
+  type: urlencoded
+  content:
+    grant_type: client_credentials
+    client_id: srps-audience-negative-test
+    client_secret: Cn9KlMqGlax1umxvTbQDAGq5HMDzuYRFIEqrTWD94FOccn8fOYyL1QvOpVSiIJWhMqpT21vETuoFa47EBxi7Tg
+order: 116000

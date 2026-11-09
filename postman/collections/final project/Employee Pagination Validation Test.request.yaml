@@ -1,0 +1,7 @@
+$kind: http-request
+url: http://localhost:8081/api/employees?page=0&size=101
+method: GET
+queryParams:
+  page: "0"
+  size: "101"
+order: 12000

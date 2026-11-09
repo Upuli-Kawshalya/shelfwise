@@ -1,0 +1,23 @@
+$kind: http-request
+url: http://localhost:8081/api/employees
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"Branch Integration Test Employee\",\r
+
+    \  \"email\": \"branch.integration.test@example.com\",\r
+
+    \  \"phone\": \"0771234567\",\r
+
+    \  \"role\": \"COUNTER_EMPLOYEE\",\r
+
+    \  \"branchId\": 1\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJNTXk5bkJIMVhSUDJFejdlWlFkdGpDandXZENyU3c4OE5UNG1yNFZNOHZ3In0.eyJleHAiOjE3OTM1MTgyNjEsImlhdCI6MTc5MzUxNzk2MSwianRpIjoib25ydHJvOmU1MjBkNDEwLWMwMzAtOGIzMC0zYzhmLWJkMjYyY2Y3Yjg1NiIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODE4MC9yZWFsbXMvc3Jwcy1yZWFsbSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJiZmU0MWE3OC00YjBjLTRmNzctYTZlNC00MWEyYWQxYzg5ZTIiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzcnBzLXBvc3RtYW4tdGVzdCIsInNpZCI6InhHUTNoLU15NERaNW1OUzlFODItT1VnSiIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIlNVUEVSX0FETUlOIiwib2ZmbGluZV9hY2Nlc3MiLCJkZWZhdWx0LXJvbGVzLXNycHMtcmVhbG0iLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6IlRlc3QgU3VwZXJBZG1pbiIsInByZWZlcnJlZF91c2VybmFtZSI6InRlc3RzdXBlcmFkbWluMSIsImdpdmVuX25hbWUiOiJUZXN0IiwiZmFtaWx5X25hbWUiOiJTdXBlckFkbWluIiwiZW1haWwiOiJ0ZXN0c3VwZXJhZG1pbjFAZXhhbXBsZS5jb20ifQ.DQRItbPO-dA4RDT0FCv7HrHlf6Mybx5yI3rfvq5O9lg7VCve4rBPoZTleWLUZdcVj5M5t-MtX044vnBZto3eQodrxAZbvwncxX_4sd1s7CCyirFlTUfCHHwbQUoPJ2IZgAQFlz1KXBm5WApLvpiNXV2OtJVp8iFsZxch-4TZcI04OFITi5MjE-L7zZHxuew0VK_rfZkJ2_dGBoAnWhJp9VPO11eoAe6wrneFi3XaZP1rAoPaa4-bAMH0jF_UrO3QrkeQMkWf-W30CVMq8yGvcFIYSpX0g0sVHWPOwP8-fKTDmExcyrK5e_DtKtIx6PkM5GpTBQnMMEci2Bmxs2F7Kg
+order: 48000

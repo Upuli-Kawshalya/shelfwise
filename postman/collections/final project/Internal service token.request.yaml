@@ -1,0 +1,53 @@
+$kind: http-request
+url: http://localhost:8180/realms/srps-realm/protocol/openid-connect/token?=&=&
+method: POST
+queryParams:
+  - key: ""
+    value: ""
+    disabled: false
+    description: ""
+  - key: ""
+    value: ""
+    disabled: false
+    description: ""
+  - key: ""
+    value: null
+    disabled: false
+    description: ""
+body:
+  type: urlencoded
+  content:
+    grant_type: client_credentials
+    client_id: srps-user-service
+    client_secret: HAUnZaYttqqDHx4yaKVfarcIp55ExpkABqeJXqy1CadwuUZopZEKwHYUfQ143fSTycXdLbu9vse9ThzTOOirS5
+scripts:
+  - type: afterResponse
+    code: "const data = pm.response.json();\r
+
+      \r
+
+      const tokenPayload = data.access_token.split(\".\")[1];\r
+
+      \r
+
+      const base64 = tokenPayload\r
+
+      \    .replace(/-/g, \"+\")\r
+
+      \    .replace(/_/g, \"/\");\r
+
+      \r
+
+      const payload = JSON.parse(\r
+
+      \    Buffer.from(base64, \"base64\").toString(\"utf8\")\r
+
+      );\r
+
+      \r
+
+      console.log(\"Token audience:\", payload.aud);\r
+
+      console.log(\"Token issuer:\", payload.iss);"
+    language: text/javascript
+order: 73000

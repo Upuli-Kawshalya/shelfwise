@@ -1,0 +1,22 @@
+$kind: http-request
+name: New Request
+url: http://localhost:8081/api/employees
+method: POST
+body:
+  type: json
+  content: "\r
+
+    {\r
+
+    \  \"name\": \"Test Super Admin Employee\",\r
+
+    \  \"email\": \"srps.admin.test1@example.com\",\r
+
+    \  \"phone\": \"0771234567\",\r
+
+    \  \"role\": \"SUPER_ADMIN\",\r
+
+    \  \"branchId\": null\r
+
+    }\r\n"
+order: 37000

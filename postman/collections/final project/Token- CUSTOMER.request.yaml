@@ -1,0 +1,5 @@
+$kind: http-request
+name: "Token: CUSTOMER"
+url: ""
+method: GET
+order: 123000

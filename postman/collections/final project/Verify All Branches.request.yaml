@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:8083/api/branches
+method: GET
+order: 24000

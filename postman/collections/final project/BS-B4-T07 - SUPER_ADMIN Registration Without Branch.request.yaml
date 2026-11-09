@@ -1,0 +1,23 @@
+$kind: http-request
+url: http://localhost:8081/api/employees
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"Super Admin Integration Test\",\r
+
+    \  \"email\": \"superadmin.integration.test@example.com\",\r
+
+    \  \"phone\": \"0771234567\",\r
+
+    \  \"role\": \"SUPER_ADMIN\",\r
+
+    \  \"branchId\": null\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJNTXk5bkJIMVhSUDJFejdlWlFkdGpDandXZENyU3c4OE5UNG1yNFZNOHZ3In0.eyJleHAiOjE3OTM1MjM0NDUsImlhdCI6MTc5MzUyMzE0NSwianRpIjoib25ydHJvOmJkOWUwNDg4LTk4ZmYtZmMxMi02YTAzLWJiOGFlNzljNTVmZSIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODE4MC9yZWFsbXMvc3Jwcy1yZWFsbSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJiZmU0MWE3OC00YjBjLTRmNzctYTZlNC00MWEyYWQxYzg5ZTIiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzcnBzLXBvc3RtYW4tdGVzdCIsInNpZCI6IktmVzBDam0yNnB6TEVQQzFuVEJTVm1WZSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIlNVUEVSX0FETUlOIiwib2ZmbGluZV9hY2Nlc3MiLCJkZWZhdWx0LXJvbGVzLXNycHMtcmVhbG0iLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6IlRlc3QgU3VwZXJBZG1pbiIsInByZWZlcnJlZF91c2VybmFtZSI6InRlc3RzdXBlcmFkbWluMSIsImdpdmVuX25hbWUiOiJUZXN0IiwiZmFtaWx5X25hbWUiOiJTdXBlckFkbWluIiwiZW1haWwiOiJ0ZXN0c3VwZXJhZG1pbjFAZXhhbXBsZS5jb20ifQ.lf8RRSDyAVvMWBnC3LFifQS260wBOa8pslHSd3srbrH2trj3YTzxv0Wvh5WoD_KTua_mO_fktXDQr6QZXDuWVxTf2-4t6ke9cgAH6o--aC73Vai-vSKfF2ksPF_GDhYkgGtBKYTCdivKIpBnvBLOwVwXNeg6qs0LhDM0LwEKy9bSuuMbXUMX1dPeOJ9-092y5giE8Ut7eqUlEPk3ha8NHRezqIY2NyeLmRKbQHY8nncrjxf2_dkp4fvhl1dbvxChzsg9CWs5l61PP0IA8bwU5MC51R4d6iK4sS2eZtBQ5a5I0oiXBGXUVU2y0gbW7ebjVaQlF4ua0JLqhvOanvcvPw
+order: 53000

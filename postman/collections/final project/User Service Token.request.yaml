@@ -1,0 +1,48 @@
+$kind: http-request
+url: http://localhost:8180/realms/srps-realm/protocol/openid-connect/token
+method: POST
+body:
+  type: urlencoded
+  content:
+    grant_type: client_credentials
+    client_id: srps-user-service
+    client_secret: HAUnZaYttqqDHx4yaKVfarcIp55ExpkABqeJXqy1CadwuUZopZEKwHYUfQ143fSTycXdLbu9vse9ThzTOOirS5
+scripts:
+  - type: afterResponse
+    code: "const token = pm.response.json().access_token;\r
+
+      \r
+
+      const payload = token.split('.')[1];\r
+
+      \r
+
+      const base64 = payload\r
+
+      \    .replace(/-/g, '+')\r
+
+      \    .replace(/_/g, '/');\r
+
+      \r
+
+      const decoded = JSON.parse(\r
+
+      \    atob(base64)\r
+
+      );\r
+
+      \r
+
+      console.log(\"Realm roles:\", decoded.realm_access?.roles);\r
+
+      \r
+
+      console.log(\r
+
+      \    \"INTERNAL_SERVICE role found:\",\r
+
+      \    decoded.realm_access?.roles?.includes(\"INTERNAL_SERVICE\")\r
+
+      );"
+    language: text/javascript
+order: 66000

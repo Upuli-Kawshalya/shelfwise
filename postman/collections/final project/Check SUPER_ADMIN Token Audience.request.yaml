@@ -1,0 +1,75 @@
+$kind: http-request
+url: http://localhost:8180/realms/srps-realm/protocol/openid-connect/token
+method: POST
+body:
+  type: urlencoded
+  content:
+    grant_type: password
+    client_id: srps-postman-test
+    "": ""
+    username: testsuperadmin1
+    password: Test@superad
+scripts:
+  - type: beforeRequest
+    code: ""
+    language: text/javascript
+  - type: afterResponse
+    code: "\r
+
+      const data = pm.response.json();\r
+
+      \r
+
+      if (pm.response.code === 200 && data.access_token) {\r
+
+      \r
+
+      \    const tokenPayload = data.access_token.split(\".\")[1];\r
+
+      \r
+
+      \    const base64 = tokenPayload\r
+
+      \        .replace(/-/g, \"+\")\r
+
+      \        .replace(/_/g, \"/\");\r
+
+      \r
+
+      \    const payload = JSON.parse(\r
+
+      \        Buffer.from(base64, \"base64\").toString(\"utf8\")\r
+
+      \    );\r
+
+      \r
+
+      \    console.log(\"SUPER_ADMIN token audience:\", payload.aud);\r
+
+      \    console.log(\"Token issuer:\", payload.iss);\r
+
+      \r
+
+      \    const audiences = Array.isArray(payload.aud)\r
+
+      \        ? payload.aud\r
+
+      \        : [payload.aud];\r
+
+      \r
+
+      \    pm.test(\"SUPER_ADMIN token contains branch-service audience\", function () {\r
+
+      \        pm.expect(audiences).to.include(\"branch-service\");\r
+
+      \    });\r
+
+      \r
+
+      } else {\r
+
+      \    console.log(\"Token request failed:\", pm.response.code);\r
+
+      }\r\n"
+    language: text/javascript
+order: 79000
